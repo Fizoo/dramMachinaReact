@@ -4,6 +4,7 @@ import React, { useState} from "react";
 import Drum from "./component/Drum";
 import 'antd/dist/antd.css';
 import Pad from "./component/Pad";
+import {Switch} from "antd";
 
 function App() {
 
@@ -16,6 +17,10 @@ function App() {
 
     return (
         <div id='drum-machine' >
+            <div className='power1'>
+                <h2>Power</h2>
+                <Switch checkedChildren="On" unCheckedChildren="Off" defaultChecked onChange={(checked)=>{setIsPower(!!checked)}} />
+            </div>
             <div id='display' className="main">
                 {
                      arrayBank.map(a => {return (
@@ -34,7 +39,9 @@ function App() {
                  setIsPower={setIsPower}
                  volume={volume}
             isPower={isPower}/>
+
         </div>
+
     )
 }
 
